@@ -3,6 +3,7 @@ from django.utils import timezone
 from blog.models import Post
 from django.shortcuts import redirect
 from blog.forms import CommentForm
+import logging
 
 # Create your views here.
 def index(request):
@@ -27,3 +28,4 @@ def post_detail(request, slug):
   return render(
       request, "blog/post-detail.html", {"post": post, "comment_form": comment_form}
     )
+
