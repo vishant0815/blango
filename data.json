@@ -1,0 +1,45 @@
+DEBUG 2025-10-02 07:22:15,477 selector_events 1113 131831911946048 Using selector: EpollSelector
+[
+{
+  "model": "blog.tag",
+  "pk": 1,
+  "fields": {
+    "value": "django"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "created_at": "2025-10-02T07:12:19.468Z",
+    "modified_at": "2025-10-02T07:12:19.468Z",
+    "published_at": "2025-10-02T07:12:19.464Z",
+    "title": "Hello World",
+    "slug": "",
+    "summary": "",
+    "content": "",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "blango_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "admin123",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-10-02T07:12:19.271Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
