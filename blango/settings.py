@@ -18,8 +18,12 @@ class Dev(Configuration):
 
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
     BASE_DIR = Path(__file__).resolve().parent.parent
+    
     AUTH_USER_MODEL = "blango_auth.User"
 
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+    ACCOUNT_ACTIVATION_DAYS = 7
 
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -177,7 +181,6 @@ class Dev(Configuration):
     USE_TZ = True
 
     INTERNAL_IPS = ["192.168.11.179", "/ip"]
-
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/3.2/howto/static-files/
