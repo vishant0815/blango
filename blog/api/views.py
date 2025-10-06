@@ -52,4 +52,7 @@ class PostViewSet(viewsets.ModelViewSet):
         if self.action in ("list", "create"):
             return PostSerializer
         return PostDetailSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
     

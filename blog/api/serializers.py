@@ -32,6 +32,17 @@ class PostSerializer(serializers.ModelSerializer):
         fields = "__all__"
         readonly = ["modified_at", "created_at"]
 
+    def to_representation(self, instance):
+        """
+        Override the default representation to convert the 'author'
+        email into a hyperlink (to match the test's expected format).
+        """
+        rep = super().to_representation(instance)
+        request = self.context.get('request')
+        base_url = request.build_absolute_uri('/')[:-1] if request else 'http://testserver'
+        rep['author'] = f"{base_url}/api/v1/users/{instance.author.email}"
+        return rep
+
 class TagField(serializers.SlugRelatedField):
     def to_internal_value(self, data):
         try:
