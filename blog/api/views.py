@@ -1,4 +1,5 @@
 from rest_framework import generics, viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from blango_auth.models import User
 from blog.api.serializers import (
@@ -35,6 +36,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
     
     @action(methods=["get"], detail=True, name="Posts with the Tag")
     def posts(self, request, pk=None):
